@@ -4,7 +4,7 @@ using System.Text;
 
 namespace RockPaperScissorsLizardSpock
 {
-    class Human
+    public class Human : Player
     {
         //member variables (HAS A)
 
