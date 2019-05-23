@@ -16,22 +16,31 @@ namespace RockPaperScissorsLizardSpock
         public void RunGame()
         {
             DisplayRules();
-            GetNumberOfPlayers();
+            int players = GetNumberOfPlayers();
+            SetPlayerType(players);
             SetPlayerNames();
 
-            while(DetermineIfGameWinner()) // "while" no one has won the game
+            while(NoWinnerYet()) // "while" no one has won the game
             {
                 GameRoundLoop();
             }
 
-            // call rungame here
+            Console.WriteLine("Would you like to restart the game?");
+            string yesNo = Console.ReadLine();
+            switch (yesNo)
+            {
+                case "yes":
+                    RunGame();
+                    break;
+                case "no":
+                    break;
+            }
         }
 
         public void GameRoundLoop()
         {
             MakeGesture();
             CompareGesture();
-            // DetermineIfGameWinner();
         }
 
         public void DisplayRules()
@@ -73,7 +82,7 @@ namespace RockPaperScissorsLizardSpock
         {
             Console.WriteLine("Enter a name for player one.");
             playerOne.name = Console.ReadLine();
-             Console.WriteLine("Enter a name for player two.");
+            Console.WriteLine("Enter a name for player two.");
             playerTwo.name = Console.ReadLine();
         }
 
@@ -130,23 +139,23 @@ namespace RockPaperScissorsLizardSpock
             }
         }
 
-        public bool DetermineIfGameWinner()
+        public bool NoWinnerYet()
         {
             if(playerOne.score > 1)
             {
                 Console.WriteLine(playerOne.name + " has won the game!");
                 Console.ReadLine();
-                return true;
+                return false;
             }
             else if(playerTwo.score > 1)
             {
                 Console.WriteLine(playerTwo.name + " has won the game!");
                 Console.ReadLine();
-                return true;
+                return false;
             }
             else
             {
-                return false;
+                return true;
             }
         }
        
