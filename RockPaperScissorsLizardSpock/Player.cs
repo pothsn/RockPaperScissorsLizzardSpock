@@ -4,22 +4,17 @@ using System.Text;
 
 namespace RockPaperScissorsLizardSpock
 {
-    public class Player
+    abstract public class Player
     {
         //member variables (HAS A)
-        List<string> gestures;
-        public string rock;
-        public string paper;
-        public string scissors;
-        public string lizzard;
-        public string spock;
-        public string pickedGesture;
-        public string winCounter;
-
-
+        public string name;
+        public int score;
+        public string gesture;
+        public List<string> gestures;
+               
 
         //constructor (SPAWNER) //constructor (SPAWNER)
-        public Gestures()
+        public Player()
         {
             gestures = new List<string>();
             gestures.Add("rock");
@@ -31,10 +26,8 @@ namespace RockPaperScissorsLizardSpock
 
 
         //member methods (CAN DO)
-        public void SelectGesture()
-        {
-
-        }
+        abstract public void ChooseGesture();
+        
         
       
     }

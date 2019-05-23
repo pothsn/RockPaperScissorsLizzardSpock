@@ -8,7 +8,7 @@ namespace RockPaperScissorsLizardSpock
         {
             Game newGame = new Game();
 
-            newGame.CreatePlayer();
+            newGame.RunGame();
 
         }
     }

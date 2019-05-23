@@ -11,6 +11,11 @@ namespace RockPaperScissorsLizardSpock
         //constructor (SPAWNER)
 
         //member methods (CAN DO)
+        public override void ChooseGesture()
+        {
+            Console.WriteLine("Choose gesture: Rock, paper, scissors, lizzard or Spock.");
+            gesture = Console.ReadLine();
+        }
 
     }
 }

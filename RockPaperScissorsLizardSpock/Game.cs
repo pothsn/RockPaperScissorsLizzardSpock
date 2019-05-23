@@ -15,43 +15,71 @@ namespace RockPaperScissorsLizardSpock
         //member methods (CAN DO)
         public void RunGame()
         {
+            DisplayRules();
+            GetNumberOfPlayers();
+            SetPlayerNames();
+            MakeGesture();
 
 
         }
 
-        public void setGameType()
+        public void DisplayRules()
         {
-            Console.WriteLine("Would you like to start a sinlgeplayer, multiplayer or bot vs. bot match?");
-            string gameType = Console.ReadLine();
-            switch (gameType)
+            Console.WriteLine("Rock Paper Scissors Lizard Spock is a game based off of Rock Paper Scissors and has a few more rules than the original game." + "\n" + 
+                "scissors cuts paper" + "\n" + "paper covers rock" + "\n" + "rock crushes lizard" + "\n" + "lizard poisons spock" + "\n" + "spock smashes scissors" + "\n" +
+                "scissors decapitates lizard" + "\n" + "lizard eats paper" + "\n" + "paper disproves spock" + "\n" + "spock vaporizes rock");
+            Console.ReadLine();
+        }
+
+        public int GetNumberOfPlayers()
+        {
+            Console.WriteLine("Will the game have one or two players?");
+            int numberOfPlayers = int.Parse(Console.ReadLine());
+            return numberOfPlayers;
+        }
+
+        public void SetPlayerType(int numberOfPlayers)
+        {
+            if (numberOfPlayers == 1)
             {
-                case "singleplayer":
-                    Console.WriteLine("Player one will face a bot.");
-                    playerOne = new Human();
-                    playerTwo = new AI();
-                    break;
-
-                case "multiplayer":
-                    Console.WriteLine("Player one will face player two.");
-                    playerOne = new Human();
-                    playerTwo = new AI();
-                    break;
-
-                case "bot vs. bot":
-                    Console.WriteLine("An automated bot vs. bot match will play out.");
-                    playerOne = new AI();
-                    playerTwo = new AI();
-                    break;
+                playerOne = new Human();
+                playerTwo = new AI();
+            }
+            else if (numberOfPlayers == 2)
+            {
+                playerOne = new Human();
+                playerTwo = new Human();
+            }
+            else
+            {
+                playerOne = new AI();
+                playerTwo = new AI();
             }
 
-
-
-
-
-
-
-
-
         }
+
+        public void SetPlayerNames()
+        {
+            Console.WriteLine("Enter a name for player one.");
+            playerOne.name = Console.ReadLine();
+            Console.WriteLine("Enter a name for player two.");
+            playerTwo.name = Console.ReadLine();
+        }
+
+        public void MakeGesture()
+        {
+            playerOne.ChooseGesture();
+            playerTwo.ChooseGesture();
+        }
+
+
+
+
+
+
+
+
+
+        
     }
 }
