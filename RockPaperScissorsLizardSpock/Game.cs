@@ -20,6 +20,7 @@ namespace RockPaperScissorsLizardSpock
             SetPlayerNames();
             MakeGesture();
             CompareGesture();
+            DetermineIfGameWinner();
 
 
         }
@@ -28,7 +29,7 @@ namespace RockPaperScissorsLizardSpock
         {
             Console.WriteLine("Rock Paper Scissors Lizard Spock is a game based off of Rock Paper Scissors and has a few more rules than the original game." + "\n" + 
                 "scissors cuts paper" + "\n" + "paper covers rock" + "\n" + "rock crushes lizard" + "\n" + "lizard poisons spock" + "\n" + "spock smashes scissors" + "\n" +
-                "scissors decapitates lizard" + "\n" + "lizard eats paper" + "\n" + "paper disproves spock" + "\n" + "spock vaporizes rock");
+                "scissors decapitates lizard" + "\n" + "lizard eats paper" + "\n" + "paper disproves spock" + "\n" + "spock vaporizes rock \n Best two out of three wins the game.");
             Console.ReadLine();
         }
 
@@ -111,7 +112,7 @@ namespace RockPaperScissorsLizardSpock
                     case ("paper vs lizard"):
                     case ("spock vs paper"):
                     case ("rock vs spock"):
-                        Console.WriteLine(playerTwo.name + " has won the round.");
+                        Console.WriteLine(playerTwo.name + " wins the round.");
                         Console.ReadLine();
                         playerTwo.score++;
                         break;
@@ -120,6 +121,45 @@ namespace RockPaperScissorsLizardSpock
             }
         }
 
+        public void DetermineIfGameWinner()
+        {
+            if(playerOne.score > 1)
+            {
+                Console.WriteLine(playerOne.name + " has won the game! Would you like to reset the game? Input: Yes or no.");
+                string replay = Console.ReadLine();
+                if(replay == "yes")
+                {
+                    RunGame();
+                }
+                else
+                {
+                    return;
+                }
+            }
+            else if(playerTwo.score > 1)
+            {
+                Console.WriteLine(playerTwo.name + " has won the game! Would you like to reset the game? Input: Yes or no.");
+                string replay = Console.ReadLine();
+                if (replay == "yes")
+                {
+                    RunGame();
+                }
+                else
+                {
+                    return;
+                }
+            }
+            else
+            {
+                GameRoundLoop();
+            }
+        }
+        public void GameRoundLoop()
+        {
+            MakeGesture();
+            CompareGesture();
+            DetermineIfGameWinner();
+        }
 
 
 
