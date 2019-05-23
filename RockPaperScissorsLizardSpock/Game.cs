@@ -19,6 +19,7 @@ namespace RockPaperScissorsLizardSpock
             GetNumberOfPlayers();
             SetPlayerNames();
             MakeGesture();
+            CompareGesture();
 
 
         }
@@ -72,6 +73,26 @@ namespace RockPaperScissorsLizardSpock
             playerTwo.ChooseGesture();
         }
 
+        public void CompareGesture()
+        {
+            if (playerOne.gesture == playerTwo.gesture)
+            {
+                Console.WriteLine("Players chose the same gesture for a tie.");
+                Console.ReadLine();
+                MakeGesture();
+            }
+            else
+            {
+                string playerGestures = playerOne.gesture + "vs" + playerTwo.gesture;
+                switch (playerGestures)
+                {
+                    case ("rock vs scissors"):
+                        playerOne.score++;
+                        break;
+                }
+
+            }
+        }
 
 
 
@@ -80,6 +101,6 @@ namespace RockPaperScissorsLizardSpock
 
 
 
-        
+
     }
 }
