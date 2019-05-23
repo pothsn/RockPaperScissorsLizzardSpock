@@ -18,11 +18,20 @@ namespace RockPaperScissorsLizardSpock
             DisplayRules();
             GetNumberOfPlayers();
             SetPlayerNames();
+
+            while(DetermineIfGameWinner()) // "while" no one has won the game
+            {
+                GameRoundLoop();
+            }
+
+            // call rungame here
+        }
+
+        public void GameRoundLoop()
+        {
             MakeGesture();
             CompareGesture();
-            DetermineIfGameWinner();
-
-
+            // DetermineIfGameWinner();
         }
 
         public void DisplayRules()
@@ -64,7 +73,7 @@ namespace RockPaperScissorsLizardSpock
         {
             Console.WriteLine("Enter a name for player one.");
             playerOne.name = Console.ReadLine();
-            Console.WriteLine("Enter a name for player two.");
+             Console.WriteLine("Enter a name for player two.");
             playerTwo.name = Console.ReadLine();
         }
 
@@ -121,45 +130,26 @@ namespace RockPaperScissorsLizardSpock
             }
         }
 
-        public void DetermineIfGameWinner()
+        public bool DetermineIfGameWinner()
         {
             if(playerOne.score > 1)
             {
-                Console.WriteLine(playerOne.name + " has won the game! Would you like to reset the game? Input: Yes or no.");
-                string replay = Console.ReadLine();
-                if(replay == "yes")
-                {
-                    RunGame();
-                }
-                else
-                {
-                    return;
-                }
+                Console.WriteLine(playerOne.name + " has won the game!");
+                Console.ReadLine();
+                return true;
             }
             else if(playerTwo.score > 1)
             {
-                Console.WriteLine(playerTwo.name + " has won the game! Would you like to reset the game? Input: Yes or no.");
-                string replay = Console.ReadLine();
-                if (replay == "yes")
-                {
-                    RunGame();
-                }
-                else
-                {
-                    return;
-                }
+                Console.WriteLine(playerTwo.name + " has won the game!");
+                Console.ReadLine();
+                return true;
             }
             else
             {
-                GameRoundLoop();
+                return false;
             }
         }
-        public void GameRoundLoop()
-        {
-            MakeGesture();
-            CompareGesture();
-            DetermineIfGameWinner();
-        }
+       
 
 
 
