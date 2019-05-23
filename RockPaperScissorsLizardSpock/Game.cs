@@ -83,68 +83,36 @@ namespace RockPaperScissorsLizardSpock
             }
             else
             {
-                string playerGestures = playerOne.gesture + "vs" + playerTwo.gesture;
+                string playerGestures = playerOne.gesture + " vs " + playerTwo.gesture;
                 switch (playerGestures)
                 {
                     case ("rock vs scissors"):
-                        playerOne.score++;
-                        break;
-                    case ("scissors vs paper"):
-                        playerOne.score++;
-                        break;
+                    case ("scissors vs paper"):                   
                     case ("paper vs rock"):
-                        playerOne.score++;
-                        break;
                     case ("rock vs lizard"):
-                        playerOne.score++;
-                        break;
                     case ("lizard vs spock"):
-                        playerOne.score++;
-                        break;
                     case ("spock vs scissors"):
-                        playerOne.score++;
-                        break;
                     case ("scissors vs lizard"):
-                        playerOne.score++;
-                        break;
                     case ("lizard vs paper"):
-                        playerOne.score++;
-                        break;
                     case ("paper vs spock"):
-                        playerOne.score++;
-                        break;
                     case ("spock vs rock"):
+                        Console.WriteLine(playerOne.name + " has won the round.");
+                        Console.ReadLine();
                         playerOne.score++;
                         break;
 
                     case ("scissors vs rock"):
-                        playerTwo.score++;
-                        break;
                     case ("paper vs scissors"):
-                        playerTwo.score++;
-                        break;
                     case ("rock vs paper"):
-                        playerTwo.score++;
-                        break;
                     case ("lizard vs rock"):
-                        playerTwo.score++;
-                        break;
                     case ("spock vs lizard"):
-                        playerTwo.score++;
-                        break;
                     case ("scissors vs spock"):
-                        playerTwo.score++;
-                        break;
                     case ("lizard vs scissors"):
-                        playerTwo.score++;
-                        break;
                     case ("paper vs lizard"):
-                        playerTwo.score++;
-                        break;
                     case ("spock vs paper"):
-                        playerTwo.score++;
-                        break;
                     case ("rock vs spock"):
+                        Console.WriteLine(playerTwo.name + " has won the round.");
+                        Console.ReadLine();
                         playerTwo.score++;
                         break;
                 }
