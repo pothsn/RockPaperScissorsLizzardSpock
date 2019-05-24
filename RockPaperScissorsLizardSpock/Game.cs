@@ -20,7 +20,7 @@ namespace RockPaperScissorsLizardSpock
             SetPlayerType(players);
             SetPlayerNames();
 
-            while(NoWinnerYet()) // "while" no one has won the game
+            while(NoWinnerYet())
             {
                 GameRoundLoop();
             }
@@ -30,7 +30,8 @@ namespace RockPaperScissorsLizardSpock
 
         public void GameRoundLoop()
         {
-            while(GesturesAreSame())
+            MakeGesture();
+            while (GesturesAreSame())
             {
                 MakeGesture();
             }
@@ -47,9 +48,25 @@ namespace RockPaperScissorsLizardSpock
 
         public int GetNumberOfPlayers()
         {
-            Console.WriteLine("Will the game have one or two players?");
-            int numberOfPlayers = int.Parse(Console.ReadLine());
-            return numberOfPlayers;
+
+            Console.WriteLine("Will the game have one or two players? Enter 1 or 2.");
+            try
+            {
+                int numberOfPlayers = int.Parse(Console.ReadLine());
+                if(numberOfPlayers == 1 || numberOfPlayers == 2)
+                {
+                    return numberOfPlayers;
+                }
+                else
+                {
+                    return GetNumberOfPlayers();
+                }
+            }
+            catch
+            {
+                return GetNumberOfPlayers();
+            }
+           
         }
 
         public void SetPlayerType(int numberOfPlayers)
@@ -90,16 +107,17 @@ namespace RockPaperScissorsLizardSpock
 
         public bool GesturesAreSame()
         {
-            if (playerOne.gesture == playerTwo.gesture)
-            {
-                Console.WriteLine("Players chose the same gesture for a tie. Press Enter to continue.");
-                Console.ReadLine();
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+         if (playerOne.gesture == playerTwo.gesture)
+         {
+             Console.WriteLine("Players chose the same gesture for a tie. Press Enter to continue.");
+             Console.ReadLine();
+             return true;
+         }
+         else
+         {
+             return false;
+         }
+
         }
         public void CompareGesture()
         {
