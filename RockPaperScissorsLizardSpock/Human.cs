@@ -11,24 +11,15 @@ namespace RockPaperScissorsLizardSpock
         //constructor (SPAWNER)
 
         //member methods (CAN DO)
-        public override string ChooseGesture()
+        public override void ChooseGesture()
         {
             foreach (string gesture in gestures)
             {
                 Console.WriteLine(gesture);
             }
-                gesture = Console.ReadLine().ToLower();
-                if(gesture == "rock" || gesture == "paper" || gesture == "scissors" || gesture == "lizard" || gesture == "spock")
-                {
-                    Console.WriteLine("Player chose " + gesture + ". Press enter to continue.");
-                    Console.ReadLine();
-                    return gesture;
-                }
-                else
-                {
-                    Console.WriteLine("Invalid input! Choose from:");
-                    return ChooseGesture();
-                }
+            gesture = Console.ReadLine();
+            Console.WriteLine("Player chose " + gesture + ". Press enter to continue.");
+            Console.ReadLine();
         }
 
     }

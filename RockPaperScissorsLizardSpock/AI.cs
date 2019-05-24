@@ -16,7 +16,7 @@ namespace RockPaperScissorsLizardSpock
 
         }
         //member methods (CAN DO)
-        public override string ChooseGesture()
+        public override void ChooseGesture()
         {
             int gestureRoll = rng.Next(5);
             switch (gestureRoll)
@@ -40,7 +40,6 @@ namespace RockPaperScissorsLizardSpock
             }
             Console.WriteLine("Player chose " + gesture + ". Press enter to continue.");
             Console.ReadLine();
-            return gesture;
 
         }
 
