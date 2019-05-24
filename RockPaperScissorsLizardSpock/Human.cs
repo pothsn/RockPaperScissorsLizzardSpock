@@ -13,8 +13,13 @@ namespace RockPaperScissorsLizardSpock
         //member methods (CAN DO)
         public override void ChooseGesture()
         {
-            Console.WriteLine("Choose gesture: Rock, paper, scissors, lizzard or Spock.");
+            foreach (string gesture in gestures)
+            {
+                Console.WriteLine(gesture);
+            }
             gesture = Console.ReadLine();
+            Console.WriteLine("Player chose " + gesture + ". Press enter to continue.");
+            Console.ReadLine();
         }
 
     }

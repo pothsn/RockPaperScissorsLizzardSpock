@@ -38,6 +38,8 @@ namespace RockPaperScissorsLizardSpock
                     break;
 
             }
+            Console.WriteLine("Player chose " + gesture + ". Press enter to continue.");
+            Console.ReadLine();
 
         }
 

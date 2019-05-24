@@ -25,29 +25,23 @@ namespace RockPaperScissorsLizardSpock
                 GameRoundLoop();
             }
 
-            Console.WriteLine("Would you like to restart the game?");
-            string yesNo = Console.ReadLine();
-            switch (yesNo)
-            {
-                case "yes":
-                    RunGame();
-                    break;
-                case "no":
-                    break;
-            }
+            DetermineIfRestart();
         }
 
         public void GameRoundLoop()
         {
-            MakeGesture();
+            while(GesturesAreSame())
+            {
+                MakeGesture();
+            }
             CompareGesture();
         }
 
         public void DisplayRules()
         {
-            Console.WriteLine("Rock Paper Scissors Lizard Spock is a game based off of Rock Paper Scissors and has a few more rules than the original game." + "\n" + 
+            Console.WriteLine("Rock Paper Scissors Lizard Spock is a game based off of Rock Paper Scissors, with two added gestures." + "\n" +  "Rules:" + "\n" + 
                 "scissors cuts paper" + "\n" + "paper covers rock" + "\n" + "rock crushes lizard" + "\n" + "lizard poisons spock" + "\n" + "spock smashes scissors" + "\n" +
-                "scissors decapitates lizard" + "\n" + "lizard eats paper" + "\n" + "paper disproves spock" + "\n" + "spock vaporizes rock \n Best two out of three wins the game.");
+                "scissors decapitates lizard" + "\n" + "lizard eats paper" + "\n" + "paper disproves spock" + "\n" + "spock vaporizes rock" + "\n" + "Best two out of three wins the game, press Enter to begin.");
             Console.ReadLine();
         }
 
@@ -88,68 +82,74 @@ namespace RockPaperScissorsLizardSpock
 
         public void MakeGesture()
         {
+            Console.WriteLine("Player one choose gesture: ");
             playerOne.ChooseGesture();
+            Console.WriteLine("Player two choose gesture: ");
             playerTwo.ChooseGesture();
         }
 
-        public void CompareGesture()
+        public bool GesturesAreSame()
         {
             if (playerOne.gesture == playerTwo.gesture)
             {
-                Console.WriteLine("Players chose the same gesture for a tie.");
+                Console.WriteLine("Players chose the same gesture for a tie. Press Enter to continue.");
                 Console.ReadLine();
-                MakeGesture();
+                return true;
             }
             else
             {
-                string playerGestures = playerOne.gesture + " vs " + playerTwo.gesture;
-                switch (playerGestures)
-                {
-                    case ("rock vs scissors"):
-                    case ("scissors vs paper"):                   
-                    case ("paper vs rock"):
-                    case ("rock vs lizard"):
-                    case ("lizard vs spock"):
-                    case ("spock vs scissors"):
-                    case ("scissors vs lizard"):
-                    case ("lizard vs paper"):
-                    case ("paper vs spock"):
-                    case ("spock vs rock"):
-                        Console.WriteLine(playerOne.name + " has won the round.");
-                        Console.ReadLine();
-                        playerOne.score++;
-                        break;
-
-                    case ("scissors vs rock"):
-                    case ("paper vs scissors"):
-                    case ("rock vs paper"):
-                    case ("lizard vs rock"):
-                    case ("spock vs lizard"):
-                    case ("scissors vs spock"):
-                    case ("lizard vs scissors"):
-                    case ("paper vs lizard"):
-                    case ("spock vs paper"):
-                    case ("rock vs spock"):
-                        Console.WriteLine(playerTwo.name + " wins the round.");
-                        Console.ReadLine();
-                        playerTwo.score++;
-                        break;
-                }
-
+                return false;
             }
+        }
+        public void CompareGesture()
+        {
+            string playerGestures = playerOne.gesture + " vs " + playerTwo.gesture;
+            switch (playerGestures)
+            {
+                case ("rock vs scissors"):
+                case ("scissors vs paper"):                   
+                case ("paper vs rock"):
+                case ("rock vs lizard"):
+                case ("lizard vs spock"):
+                case ("spock vs scissors"):
+                case ("scissors vs lizard"):
+                case ("lizard vs paper"):
+                case ("paper vs spock"):
+                case ("spock vs rock"):
+                    Console.WriteLine(playerOne.name + " has won the round. Press Enter to continue.");
+                    Console.ReadLine();
+                    playerOne.score++;
+                    break;
+
+                case ("scissors vs rock"):
+                case ("paper vs scissors"):
+                case ("rock vs paper"):
+                case ("lizard vs rock"):
+                case ("spock vs lizard"):
+                case ("scissors vs spock"):
+                case ("lizard vs scissors"):
+                case ("paper vs lizard"):
+                case ("spock vs paper"):
+                case ("rock vs spock"):
+                    Console.WriteLine(playerTwo.name + " wins the round. Press enter to continue.");
+                    Console.ReadLine();
+                    playerTwo.score++;
+                    break;
+            }
+
         }
 
         public bool NoWinnerYet()
         {
             if(playerOne.score > 1)
             {
-                Console.WriteLine(playerOne.name + " has won the game!");
+                Console.WriteLine(playerOne.name + " has won the game! Press Enter to continue.");
                 Console.ReadLine();
                 return false;
             }
             else if(playerTwo.score > 1)
             {
-                Console.WriteLine(playerTwo.name + " has won the game!");
+                Console.WriteLine(playerTwo.name + " has won the game! Press enter to continue.");
                 Console.ReadLine();
                 return false;
             }
@@ -159,13 +159,19 @@ namespace RockPaperScissorsLizardSpock
             }
         }
        
-
-
-
-
-
-
-
+        public void DetermineIfRestart()
+        {
+            Console.WriteLine("Would you like to restart the game?");
+            string yesNo = Console.ReadLine();
+            switch (yesNo)
+            {
+                case "yes":
+                    RunGame();
+                    break;
+                case "no":
+                    break;
+            }
+        }
 
     }
 }
