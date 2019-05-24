@@ -26,7 +26,7 @@ namespace RockPaperScissorsLizardSpock
 
 
         //member methods (CAN DO)
-        abstract public void ChooseGesture();
+        abstract public string ChooseGesture();
         
         
       

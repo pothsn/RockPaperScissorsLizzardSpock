@@ -181,8 +181,7 @@ namespace RockPaperScissorsLizardSpock
         {
             Console.WriteLine("Would you like to restart the game? Enter: Yes or no.");
             string yesNo = Console.ReadLine().ToLower();
-            try
-            {
+           
                 switch (yesNo)
                 {
                     case "yes":
@@ -190,13 +189,13 @@ namespace RockPaperScissorsLizardSpock
                         break;
                     case "no":
                         break;
+                    default:
+                        Console.WriteLine("Invalid input.");
+                        DetermineIfRestart();
+                        break;
+
                 }
-            }
-            catch
-            {
-                Console.WriteLine("Invalid input. Enter: Yes or no.");
-                DetermineIfRestart();
-            }
+         
         }
 
     }
