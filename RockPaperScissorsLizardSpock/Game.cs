@@ -49,11 +49,11 @@ namespace RockPaperScissorsLizardSpock
         public int GetNumberOfPlayers()
         {
 
-            Console.WriteLine("Will the game have one or two players? Enter 1 or 2.");
+            Console.WriteLine("Will the game have one or two players? Enter 1 or 2. For bot vs bot match, enter 0.");
             try
             {
                 int numberOfPlayers = int.Parse(Console.ReadLine());
-                if(numberOfPlayers == 1 || numberOfPlayers == 2)
+                if(numberOfPlayers == 0 || numberOfPlayers == 1 || numberOfPlayers == 2)
                 {
                     return numberOfPlayers;
                 }
