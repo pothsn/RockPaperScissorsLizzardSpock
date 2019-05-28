@@ -20,8 +20,8 @@ namespace RockPaperScissorsLizardSpock
             gestures.Add("rock");
             gestures.Add("paper");
             gestures.Add("scissors");
-            gestures.Add("lizzard");
-            gestures.Add("spock");
+            gestures.Add("lizard");
+            gestures.Add("Spock");
         }
 
 
