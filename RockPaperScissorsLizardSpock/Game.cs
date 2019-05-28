@@ -41,8 +41,8 @@ namespace RockPaperScissorsLizardSpock
         public void DisplayRules()
         {
             Console.WriteLine("Rock Paper Scissors Lizard Spock is a game based off of Rock Paper Scissors, with two added gestures." + "\n" +  "Rules:" + "\n" + 
-                "scissors cuts paper" + "\n" + "paper covers rock" + "\n" + "rock crushes lizard" + "\n" + "lizard poisons Spock" + "\n" + "Spock smashes scissors" + "\n" +
-                "scissors decapitates lizard" + "\n" + "lizard eats paper" + "\n" + "paper disproves Spock" + "\n" + "Spock vaporizes rock" + "\n" + "Best two out of three wins the game, press Enter to begin.");
+                "Scissors cuts paper." + "\n" + "Paper covers rock." + "\n" + "Rock crushes lizard." + "\n" + "Lizard poisons Spock." + "\n" + "Spock smashes scissors." + "\n" +
+                "Scissors decapitates lizard." + "\n" + "Lizard eats paper." + "\n" + "Paper disproves Spock." + "\n" + "Spock vaporizes rock." + "\n" + "Best two out of three wins the game, press Enter to begin.");
             Console.ReadLine();
         }
 
